@@ -80,4 +80,3 @@ aws sqs create-queue --queue-name stage-files-queue --region eu-west-1 --attribu
 aws --endpoint-url=http://localhost:4566 \
 s3api put-bucket-notification-configuration --bucket innowise-task \
 --notification-configuration file:///home/ndx/Innowise\ tasks/Innowise_task_8/configuration/s3splitfileflow.json
-
