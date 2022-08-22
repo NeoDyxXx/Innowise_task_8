@@ -1,6 +1,6 @@
 import boto3
-from local_variable import AWS_REGION, endpoint_url
-from logger_handler import LoggerHandler
+from innowise_task_8.another_classes.local_variable import AWS_REGION, endpoint_url
+from innowise_task_8.another_classes.logger_handler import LoggerHandler
 from botocore.exceptions import ClientError
 
 class SQSHandler:

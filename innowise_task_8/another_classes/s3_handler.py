@@ -1,7 +1,7 @@
 import boto3
 import io
 from io import StringIO
-from local_variable import AWS_REGION, endpoint_url
+from innowise_task_8.another_classes.local_variable import AWS_REGION, endpoint_url
 
 
 class S3Handler:
@@ -62,3 +62,14 @@ class S3Handler:
         )
 
         return response
+
+    def get_s3_notification(self, bucket_name: str):
+        response = self.s3_client.get_bucket_notification_configuration(
+            Bucket=bucket_name
+        )
+
+        return response
+
+    def get_list_of_files_in_bucket(self, bucket_name: str):
+        s3_bucket = self.s3_resource.Bucket(bucket_name)
+        return [item.key for item in s3_bucket.objects.all()]

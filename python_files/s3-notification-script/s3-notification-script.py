@@ -45,8 +45,11 @@ def send_queue_message(queue_url, msg_attributes, msg_body):
 
 def lambda_handler(event, context): 
     file_name = event['Records'][0]['s3']['object']['key']
-    if file_name.split('.')[1] == 'parse':
-        send_queue_message(queue_url=get_queue('parse-files-queue'), msg_attributes={}, msg_body=file_name)
+
+    if 'parse-type-one' in file_name.split('_')[-1]:
+        send_queue_message(queue_url=get_queue('parse-files-queue-type-one'), msg_attributes={}, msg_body=file_name)
+    elif 'parse-type-two' in file_name.split('_')[-1]:
+        send_queue_message(queue_url=get_queue('parse-files-queue-type-two'), msg_attributes={}, msg_body=file_name)
     else:
         send_queue_message(queue_url=get_queue('stage-files-queue'), msg_attributes={}, msg_body=file_name)
 

@@ -1,5 +1,5 @@
 import boto3
-from local_variable import AWS_REGION, endpoint_url
+from innowise_task_8.another_classes.local_variable import AWS_REGION, endpoint_url
 import json
 
 class LambdaHandler:
@@ -77,6 +77,14 @@ class LambdaHandler:
             Enabled=True,
             BatchSize=1,
             StartingPosition='LATEST'
+        )
+
+        return response
+
+    def get_event_source_mapping(self, func_name: str, object_type: str, object_name: str, aws_id: str = '000000000000'):
+        response = self.lambda_client.list_event_source_mappings(
+            EventSourceArn=f'arn:aws:{object_type}:{AWS_REGION}:{aws_id}:{object_name}',
+            FunctionName=func_name
         )
 
         return response
