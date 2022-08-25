@@ -102,3 +102,6 @@ airflow users create \
     -l Kraynov \
     -r Admin \
     -e yakirik3@gmail.com
+
+
+{"Records":[{"body":"split_data_2016-05_parse-type-two1.csv","receiptHandle":"ZGY5N2ZkMWMtZWY3Zi00YjhkLWI4NDItZmVhNGVkZmM5ODM1IGFybjphd3M6c3FzOmV1LXdlc3QtMTowMDAwMDAwMDAwMDA6cGFyc2UtZmlsZXMtcXVldWUtdHlwZS10d28gMjA0MzVkMjctN2Q5Yy00MzkyLWExMTUtMjRkNWEzNTViNTJmIDE2NjExNzczNzcuNzQ3NzM1Mw==","md5OfBody":"cc84049b2312e180bea5bdefc192a9d1","eventSourceARN":"arn:aws:sqs:eu-west-1:000000000000:parse-files-queue-type-two","eventSource":"aws:sqs","awsRegion":"eu-west-1","messageId":"20435d27-7d9c-4392-a115-24d5a355b52f","attributes":{"SenderId":"000000000000","SentTimestamp":"1661177376863","ApproximateReceiveCount":"1","ApproximateFirstReceiveTimestamp":"1661177377747"},"messageAttributes":{}}]}

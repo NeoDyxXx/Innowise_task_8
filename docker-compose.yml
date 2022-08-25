@@ -8,12 +8,10 @@ services:
       - localstack-net
     ports:
       - "4566-4599:4566-4599"
-      - "${PORT_WEB_UI-8080}:${PORT_WEB_UI-8080}"
     environment:
-      - SERVICES=s3,sqs,lambda,cloudformation,iam,cloudwatch,apigateway,events,logs,athena
+      - SERVICES=s3,sqs,lambda,cloudformation,iam,cloudwatch,apigateway,events,logs,serverless
       - DEBUG=1
       - DATA_DIR=/tmp/localstack/data
-      - PORT_WEB_UI=8080
       - LAMBDA_EXECUTOR=docker
       - KINESIS_ERROR_PROBABILITY=${KINESIS_ERROR_PROBABILITY- }
       - DOCKER_HOST=unix:///var/run/docker.sock
