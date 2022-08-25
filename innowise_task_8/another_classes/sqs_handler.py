@@ -9,7 +9,7 @@ class SQSHandler:
         self.sqs_resource = boto3.resource("sqs", region_name=AWS_REGION, endpoint_url=endpoint_url)
         self.logger = LoggerHandler()
 
-    def create_queue(self, queue_name, delay_seconds, visiblity_timeout):
+    def create_queue(self, queue_name, delay_seconds, visiblity_timeout, fifo: bool = 'false'):
         """
         Create a standard SQS queue
         """
@@ -17,7 +17,8 @@ class SQSHandler:
             response = self.sqs_client.create_queue(QueueName=queue_name,
                                                 Attributes = {
                                                     'DelaySeconds': delay_seconds,
-                                                    'VisibilityTimeout': visiblity_timeout
+                                                    'VisibilityTimeout': visiblity_timeout,
+                                                    'FifoQueue': fifo
                                                 })
         except ClientError:
             self.logger.log_error(f'Could not create SQS queue - {queue_name}.')
